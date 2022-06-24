@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   # GET /teams/1
   def show
-    render json: @team
+    render json: @team, serializer: TeamPlayerSerializer
   end
 
   # POST /teams
