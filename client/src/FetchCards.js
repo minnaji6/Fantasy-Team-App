@@ -6,7 +6,7 @@ import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button }  
 const FetchCards = () => {
     const [cards, setCards] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/teams/')
+        axios.get('http://localhost:3000/players/')
         .then(res => setCards(res.data))
         .catch(err => console.log(err))
     }, [])
@@ -26,13 +26,15 @@ const FetchCards = () => {
                             <Typography variant="body2" color="textSecondary" component="p">
                                 {card.ppg} points per game
                             </Typography>
-                            <Typography variant="body2" color="textSecondary" component="p">
-                                Team:{card.team} 
+                            <Typography variant="subtitle1" color="textSecondary" component="p">
+                            Team: {card.teams.map((sub, index) => 
+                                <Button variant="contained" size="small" color="secondary" key={index}>{sub.name}</Button>
+                                )}
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            {/* <Button onClick={() =>Update.} size="small">Edit</Button>
-                            <Button size="small">Delete</Button> */}
+                            <Button onClick={() =>Update(card.id)}size="small">Edit</Button>
+                            <Button onClick={() =>remove(card.id)}size="small">Delete</Button>
                          </CardActions>
                     </Card>
                 </Grid>

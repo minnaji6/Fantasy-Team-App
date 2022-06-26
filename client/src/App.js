@@ -29,6 +29,7 @@ function App() {
       <div className="View-Teams">
         <br></br>
       <Container>
+        VIEW ALL PLAYERS 
       <FetchCards />
       </Container>
       </div>
