@@ -1,11 +1,12 @@
 import React, { useState, useEffect} from 'react'
 import axios from 'axios'
-import { Grid, Card, CardMedia, CardContent, Typography }  from "@mui/material";
+import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button }  from "@mui/material";
+
 
 const FetchCards = () => {
     const [cards, setCards] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:3000/players')
+        axios.get('http://localhost:3000/teams/')
         .then(res => setCards(res.data))
         .catch(err => console.log(err))
     }, [])
@@ -25,7 +26,14 @@ const FetchCards = () => {
                             <Typography variant="body2" color="textSecondary" component="p">
                                 {card.ppg} points per game
                             </Typography>
+                            <Typography variant="body2" color="textSecondary" component="p">
+                                Team:{card.team} 
+                            </Typography>
                         </CardContent>
+                        <CardActions>
+                            {/* <Button onClick={() =>Update.} size="small">Edit</Button>
+                            <Button size="small">Delete</Button> */}
+                         </CardActions>
                     </Card>
                 </Grid>
             ))}

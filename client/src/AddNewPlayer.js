@@ -1,20 +1,12 @@
-import React, {useState, useEffect} from 'react';
+// import React, { Component, useEffect, useState } from 'react'
+// import axios from 'axios'
+
+// // code to patch to media card material ui using axios
+// // import { Grid, Card, CardMedia, CardContent, Typography }  from "@mui/material";
+
+// const AddNewPlayer = axios.create({
+//     baseURL: 'http://localhost:3000/teams/',
+// }
 
 
-function AddNewPlayer() {
-    // const [searchResults, setsearchResults] = useState([]);
-
-    // useEffect(() => {
-    //     // fetch('http://localhost:3000/players') link with players 
-    //     fetch("http://localhost:3000/players")
-    //     .then (res => res.json())
-    //     .then ((json) => setsearchResults(json.data))
-    //     // .catch(err => console.log(err));
-    // }, []);
-   
-    // console.log("hi")
-    return
-
-    ;
-}
-export default AddNewPlayer;
+// export default UpdateTodo

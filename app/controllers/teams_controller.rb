@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :invalid_team
   before_action :set_team, only: [:show, :update, :destroy]
 
   # GET /teams
@@ -44,8 +45,14 @@ class TeamsController < ApplicationController
       @team = Team.find(params[:id])
     end
 
+
+
     # Only allow a list of trusted parameters through.
     def team_params
       params.require(:team).permit(:name)
+    end
+
+    def invalid_team
+      render json: { error: ' Team Not Found' }, status: :not_found
     end
 end
