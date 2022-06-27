@@ -16,7 +16,7 @@ function NavButtons() {
     <Button href="/player/new" variant="contained">NEW PLAYER</Button>
     <br/>
     <br/>
-    <Button  size="large" href="/team/new" variant="contained">NEW TEAM</Button>
+    <Button  href="/team/new" variant="contained">TEAMS</Button>
     
     </div>
     

@@ -48,7 +48,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://s.yimg.com/ny/api/res/1.2/3oRP_eLdK8lySncePuZCGw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyMDA7aD04MDA-/https://s.yimg.com/os/creatr-images/2020-05/b9b27b40-9547-11ea-b5fb-0e86f7a8e4ad)',
+            backgroundImage: 'url(https://cdn.dribbble.com/users/250336/screenshots/7165826/final.gif)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
