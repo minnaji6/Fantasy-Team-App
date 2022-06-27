@@ -15,6 +15,7 @@ function PlayerForm() {
 
   const [formState, setFormState] = useState({});
   const [playerId, setPlayerID]= useState('');
+ 
 
   const [selectedPlayer, setSelectedPlayer] = React.useState(['']);
 
@@ -28,9 +29,11 @@ function PlayerForm() {
     setFormState((formState) => ({ ...formState, [name]: value }));
   };
 
-  console.log(selectedPlayer)
+  // console.log((selectedPlayer.length)+1)
+
+
   
-  
+  const num = ((selectedPlayer.length)+1)
    
   
   // const editlayer = (playerId) => {
@@ -43,6 +46,20 @@ function PlayerForm() {
   //     body: JSON.stringify(formState)
   //   }
   // }
+  const addPlayer = () => {
+    fetch(`http://localhost:3000/players/${num}`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accepts': 'application/json'
+      },
+      body: JSON.stringify(formState)
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(data)});}
+
+
   const editPlayer = () => {
   fetch(`http://localhost:3000/players/${playerId}`,{
     method: 'PATCH',
@@ -122,9 +139,11 @@ function PlayerForm() {
         />
         
       {/* <pre>{JSON.stringify(formState, null, 2)}</pre> */}
+      
         <Box>
           <Button
               onClick={() => {
+                addPlayer(num);
                 alert('NEW PLAYER ADDED!');
               }}
             >

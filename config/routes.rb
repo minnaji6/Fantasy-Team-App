@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete '/players/:id', to: 'players#destroy'
   patch '/players/:id', to: 'players#update'
   get 'players/new', to: 'players#new'
+  post '/players/:id', to: 'players#create'
 
   
 
