@@ -1,18 +1,17 @@
 import React from 'react'
 import {Button} from '@mui/material'
 
-
-function PlayerForm() {
+function TeamForm() {
   return (
     <>
-    <div className="Nav-Buttons">
+     <div className="Nav-Buttons">
     <Button  size="large" color="secondary" href="/home" variant="contained">HOME</Button>
     <br/>
     <br/>
-    <Button  size="large" href="/team/new" variant="contained">NEW TEAM</Button>
-    </div>
-    <br></br>
-    <div className="PlayerForm-container">
+    <Button href="/player/new" variant="contained">NEW PLAYER</Button>
+    <br/>
+    <br/>
+    
         
         TeamForm
         </div>
@@ -22,4 +21,4 @@ function PlayerForm() {
   )
 }
 
-export default PlayerForm;
+export default TeamForm
