@@ -6,18 +6,57 @@ import Button from '@mui/material/Button';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
 import { useState } from "react";
+import Stack from "@mui/material/Stack";
+import { Autocomplete } from "@mui/material";
+import axios from 'axios';
 
 
 function PlayerForm() {
 
   const [formState, setFormState] = useState({});
+  const [playerId, setPlayerID]= useState('');
+
+  const [selectedPlayer, setSelectedPlayer] = React.useState(['']);
+
+     axios.get('http://localhost:3000/players/')
+      .then((res) =>  {
+      setSelectedPlayer(res.data);
+    });
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState((formState) => ({ ...formState, [name]: value }));
   };
+
+  console.log(selectedPlayer)
+  
+  
    
   
+  // const editlayer = (playerId) => {
+  //   fetch(`http://localhost:3000/players/${player.id}`),{
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'Accepts': 'application/json'
+  //     },
+  //     body: JSON.stringify(formState)
+  //   }
+  // }
+  const editPlayer = () => {
+  fetch(`http://localhost:3000/players/${playerId}`,{
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accepts': 'application/json'
+    },
+    body: JSON.stringify(formState)
+  })
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)});}
+  
+
 
   const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -89,7 +128,7 @@ function PlayerForm() {
                 alert('NEW PLAYER ADDED!');
               }}
             >
-              Submit
+              Submit NEW PLAYER
           </Button>
               
         </Box>
@@ -105,6 +144,43 @@ function PlayerForm() {
       >
         <Button href="https://www.basketball-reference.com/search/search.fcgi?hint=gary%20trent%20jr.&search=gary%20trent%20jr" >REFERENCE LINK FOR PLAYER INFO</Button>
       </HtmlTooltip>
+
+      <br/>
+      <br/>
+      <br/>
+      <Stack sx={{width: 300, margin: "auto"}}>
+            {/* <Autocomplete
+            id="nba_player"
+            getOptionLabel={(selectedPlayer) => `${selectedPlayer.name}`}
+            options={selectedPlayer}
+            sx={{width: 300}}
+            isOptionEqualToValue={(option, value) => 
+                option.name === value.name
+            }
+            noOptionsText={"Player Not Added"}
+            renderOption={(props, selectedPlayer) => (
+              <Box componet="li"{...props} key={selectedPlayer.id}>
+                   {selectedPlayer.name}
+                </Box> 
+                
+            )}
+            renderInput={(params) => <TextField {...params} label="Search for an added Player TO EDIT"/>}
+            /> */}
+            <select value={playerId} onChange={(e)=> setPlayerID(e.target.value)}>
+                  {selectedPlayer.map(player=>(
+                    <option value={player.id}key={player.id}>{player.name}</option>
+                  ))}
+                </select>
+                <Button
+                onClick={() => {
+                  editPlayer(playerId);
+                  alert('PLAYER EDITTED');
+                }}
+              >
+                EDIT 
+            </Button>
+            
+        </Stack>
         </div>
         
     </>

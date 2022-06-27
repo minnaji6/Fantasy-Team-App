@@ -5,30 +5,23 @@ import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button }  
 
 const FetchCards = () => {
     const [cards, setCards] = useState([])
+
     useEffect(() => {
         axios.get('http://localhost:3000/players/')
         .then(res => setCards(res.data))
         
     }, [])
 
-    // function Update(id){
-    //     console.log(id)
-    //     props.history.push("/Update/" + id)
-    // }
-  
-    
-    // const Remove = (id, e) => {
-    //     e.preventDefault();
-    //     axios.delete(`http://localhost:3000/players/${id}`)
-    //     .then(res => {
-    //         history.push(`/delete/${id}`)
-    //     }).catch(err => console.log(err))
-    // }
-    // function Delete(id){
-    //     console.log(id)
-    //     props.history.push("/Delete/" + id)
-    // }
+     const Delete = (id) => {
+           setCards(prevCards=> {
+            return prevCards.filter(card=> card.id != id)
+           })
 
+           axios.delete('http://localhost:3000/players/' + id)
+           .then(res => setCards(res.data))
+    } 
+
+    
 
     return (
         <Grid container spacing={3}>
@@ -56,7 +49,7 @@ const FetchCards = () => {
                             {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
                             {/* <Button onClick={(e) =>Remove(card.id, e)}size="small">Delete</Button> */}
                             {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
-                            <Button size="small" > Delete</Button>
+                            <Button size="small" onClick={()=> Delete(card.id)}> Delete</Button>
                             <Button size="small" > Edit</Button>
                          </CardActions>
                     </Card>
