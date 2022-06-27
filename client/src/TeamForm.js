@@ -46,6 +46,7 @@ function TeamForm() {
           <div>
         
       </div>
+      <Stack sx={{width: 300, margin: "auto"}}>
       <FormControl sx={{ m: 1, minWidth: 120 }}>
           <InputLabel id="demo-simple-select-helper-label">Team</InputLabel>
           <Select
@@ -61,8 +62,8 @@ function TeamForm() {
             <MenuItem value={4}>Avengers</MenuItem>
             <MenuItem value={5}>Legacies</MenuItem>
           </Select>
-          <FormHelperText>Select Team Name</FormHelperText>
-        </FormControl>
+          <br/>        </FormControl>
+        </Stack>
 
         <Stack sx={{width: 300, margin: "auto"}}>
             <Autocomplete
@@ -81,15 +82,17 @@ function TeamForm() {
             )}
             renderInput={(params) => <TextField {...params} label="Search for an added Player"/>}
             />
-        </Stack>
 
-      <Button
+                <Button
                 onClick={() => {
                   alert('NEW PLAYER ADDED TO TEAM!');
                 }}
               >
                 Submit
             </Button>
+        </Stack>
+
+      
 
         <FetchTeamCards/>
         <br/>

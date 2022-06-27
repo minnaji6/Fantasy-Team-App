@@ -5,21 +5,20 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Tooltip, { tooltipClasses } from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-
-// import {useLocation, useHistory} from 'react-router-dom'
 import { useState } from "react";
-
-// constructor (player) {
-//   id: string;
-//   name: string
-//   ppg:  string
-//   image: string
-// }
 
 
 function PlayerForm() {
- 
+
+  const [formState, setFormState] = useState({});
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormState((formState) => ({ ...formState, [name]: value }));
+  };
    
+  
+
   const HtmlTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
@@ -62,20 +61,28 @@ function PlayerForm() {
           required
           id="outlined-required"
           label="Name"
-          defaultValue=""
+          name="name"
+          onChange={handleChange}
+          value={formState.name}
         />
         <TextField
           required
           id="outlined-required"
+          name="ppg"
           label="ppg"
-          defaultValue=""
+          onChange={handleChange}
+          value={formState.ppg}
         />
         <TextField
           required
           id="outlined-required"
           label="image"
-          defaultValue=""
+          name="image"
+          onChange={handleChange}
+          value={formState.image}
         />
+        
+      {/* <pre>{JSON.stringify(formState, null, 2)}</pre> */}
         <Box>
           <Button
               onClick={() => {
