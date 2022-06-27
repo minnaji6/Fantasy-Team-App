@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button }  from "@mui/material";
 
@@ -8,8 +9,28 @@ const FetchCards = () => {
     useEffect(() => {
         axios.get('http://localhost:3000/players/')
         .then(res => setCards(res.data))
-        .catch(err => console.log(err))
+        
     }, [])
+
+    // function Update(id){
+    //     console.log(id)
+    //     props.history.push("/Update/" + id)
+    // }
+  
+    
+    // const Remove = (id, e) => {
+    //     e.preventDefault();
+    //     axios.delete(`http://localhost:3000/players/${id}`)
+    //     .then(res => {
+    //         history.push(`/delete/${id}`)
+    //     }).catch(err => console.log(err))
+    // }
+    // function Delete(id){
+    //     console.log(id)
+    //     props.history.push("/Delete/" + id)
+    // }
+
+
     return (
         <Grid container spacing={3}>
             {cards.map(card => (
@@ -33,8 +54,11 @@ const FetchCards = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button onClick={() =>Update(card.id)}size="small">Edit</Button>
-                            <Button onClick={() =>remove(card.id)}size="small">Delete</Button>
+                            {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
+                            {/* <Button onClick={(e) =>Remove(card.id, e)}size="small">Delete</Button> */}
+                            {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
+                            <Button size="small" > Delete</Button>
+                            <Button size="small" > Edit</Button>
                          </CardActions>
                     </Card>
                 </Grid>

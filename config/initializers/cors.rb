@@ -15,5 +15,11 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
     resource '/teams',
       headers: :any,
       methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource '/players/:id',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+    resource '/teams/:id',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
   end
 end

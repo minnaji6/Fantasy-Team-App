@@ -1,10 +1,8 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
-import TeamSearch from './TeamSearch';
 import Container from '@mui/material/Container';
-import PlayerSearch from './PlayerSearch';
 import FetchCards from './FetchCards';
-import AddNewPlayer from './AddNewPlayer';
+import PlayerForm from './PlayerForm';
 import {Route, Routes} from 'react-router-dom';
 
 function App() {
@@ -21,16 +19,14 @@ function App() {
       <Button  size="large" href="/team/new" variant="contained">NEW TEAM</Button>
       </div>
       <br></br>
-      <div className="Search">
-      <TeamSearch />
-      <br></br>
-      <PlayerSearch />
-      </div>
       <div className="View-Teams">
         <br></br>
       <Container>
         VIEW ALL PLAYERS 
       <FetchCards />
+      {/* <Routes>
+      <PlayerForm />
+      </Routes> */}
       </Container>
       </div>
       </header>
