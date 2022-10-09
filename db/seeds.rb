@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+u1 = User.create(name: 'Tosie', email: 'tosie@gmail.com', admin: true, password: "password")
+u2 = User.create(name: 'hiZ', email: 'hiZ@gmail.com', admin: true, password: "password")
+
+
 puts "🏀 Seeding teams..."
 Team.create([
     { name: 'Fanduel'},
@@ -56,3 +60,4 @@ TeamPlayer.create!([
     {user_id: 1, player_id: 15, team_id: 1}
     ],
 )
+

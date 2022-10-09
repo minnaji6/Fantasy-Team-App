@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
   
   
+  resources :users
+  resources :sessions
   resources :team_players
   resources :players
   resources :teams
 
-  delete '/players/:id', to: 'players#destroy'
+ 
+  post '/players/:id', to: 'players#create'
   patch '/players/:id', to: 'players#update'
   get 'players/new', to: 'players#new'
-  post '/players/:id', to: 'players#create'
+  delete '/players/:id', to: 'players#destroy'
+
+  post 'Login', to: 'sessions#login'
 
   
 

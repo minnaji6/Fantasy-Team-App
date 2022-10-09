@@ -11,7 +11,7 @@ function NavButtons() {
                 display="flex"
                 justifyContent="flex-start"
                 alignItems="flex-start">
-                <Button className='Logout-btn' size="small" variant='contained' color='secondary' href="/SignInSide" >Logout</Button>
+                <Button className='Logout-btn' size="small" variant='contained' color='secondary' href="/login" >Logout</Button>
         </Box>
     <Button href="/player/new" variant="contained">NEW PLAYER</Button>
     <br/>

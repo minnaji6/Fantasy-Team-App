@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Home from './Home';
 import PlayerForm from './PlayerForm';
-import SignInSide from './SignInSide';
+import Login from './Login';
 import TeamForm from './TeamForm';
 import {Route, Routes} from 'react-router-dom';
 
@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       
         <Routes>
-          <Route path="/SignInSide" element={<SignInSide />} ></Route>
+          <Route path="/login" element={<Login />} ></Route>
           <Route path="/player/new" element={<PlayerForm />} ></Route>
           <Route path="/team/new" element={<TeamForm />} ></Route>
           <Route path="/home" element={<Home />}></Route>

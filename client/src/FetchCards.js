@@ -46,11 +46,8 @@ const FetchCards = () => {
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
-                            {/* <Button onClick={(e) =>Remove(card.id, e)}size="small">Delete</Button> */}
-                            {/* <Button onClick={() =>Update(card.id)}size="small">Edit</Button> */}
                             <Button size="small" onClick={()=> Delete(card.id)}> Delete</Button>
-                            <Button size="small" > Edit</Button>
+                            <Button size="small" href='http://localhost:4000/player/new' > Edit</Button>
                          </CardActions>
                     </Card>
                 </Grid>

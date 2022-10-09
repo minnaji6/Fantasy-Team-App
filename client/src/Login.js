@@ -28,7 +28,7 @@ function Copyright(props) {
 
 const theme = createTheme();
 
-export default function SignInSide() {
+export default function Login() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -98,6 +98,7 @@ export default function SignInSide() {
                 label="Remember me"
               />
               <Button
+                href="/home"
                 type="submit"
                 fullWidth
                 variant="contained"
